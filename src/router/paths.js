@@ -1,58 +1,52 @@
 export default [
   {
-    path: '/login',
+    path: "/login",
     meta: {
-      public: true,
+      public: true
     },
-    name: 'Login',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/Login.vue`
-    )
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/Login.vue`)
   },
   {
-    path: '/',
-    meta: { },
-    name: 'Root',
+    path: "/",
+    meta: {},
+    name: "Root",
     redirect: {
-      name: 'Dashboard'
+      name: "Dashboard"
     }
   },
   {
-    path: '/dashboard',
+    path: "/dashboard",
     meta: { breadcrumb: true },
-    name: 'Dashboard',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/Dashboard.vue`
-    )
+    name: "Dashboard",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/Dashboard.vue`)
   },
   {
-    path: 'userdata',
+    path: "userdata",
     meta: { breadcrumb: true },
-    name: 'userdata',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/ui/Tables.vue`
-    )
+    name: "userdata",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/ui/Tables.vue`)
   },
   {
-    path: '/patientqueue',
+    path: "/patientqueue",
     meta: { breadcrumb: true },
-    name: 'patientqueue',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/patientQueue.vue`
-    )
+    name: "patientqueue",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/patientQueue.vue`)
   },
   {
-    path: '/halodogter',
+    path: "/halodogter",
     meta: { breadcrumb: true },
-    name: 'dogter',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      `@/views/Dogter.vue`
-    )
-  },
-
+    name: "dogter",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/Dogter.vue`)
+  }
 ];

@@ -1,37 +1,37 @@
-const Menu =  [
-  { header: 'Apps' },
+const Menu = [
+  { header: "Apps" },
   {
-    title: 'Dashboard',
-    group: 'apps',
-    icon: 'dashboard',
-    name: 'Dashboard',
+    title: "Dashboard",
+    group: "apps",
+    icon: "dashboard",
+    name: "Dashboard"
   },
   {
-    title: 'Data User',
-    group: 'apps',
-    icon: 'bar_chart',
-    name: 'userdata',
+    title: "Data User",
+    group: "apps",
+    icon: "bar_chart",
+    name: "userdata"
   },
   {
-    title: 'Antrian Pasien',
-    group: 'apps',
-    icon: 'queue',
-    name: 'patientqueue',
+    title: "Antrian Pasien",
+    group: "apps",
+    icon: "queue",
+    name: "patientqueue"
   },
   {
-    title: 'Dokter',
-    group: 'apps',
-    icon: 'record_voice_over',
-    name: 'dogter',
-  },
+    title: "Dokter",
+    group: "apps",
+    icon: "record_voice_over",
+    name: "dogter"
+  }
 ];
 // reorder menu
-Menu.forEach((item) => {
+Menu.forEach(item => {
   if (item.items) {
     item.items.sort((x, y) => {
       let textA = x.title.toUpperCase();
       let textB = y.title.toUpperCase();
-      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+      return textA < textB ? -1 : textA > textB ? 1 : 0;
     });
   }
 });
