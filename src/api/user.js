@@ -6,7 +6,7 @@ const Items = [
     Alamat: "Palembang, Babarsari oke",
     AlamatLahir: "Palembang, Babarsari Jaya",
     dateOfBirth: "20/05/1997",
-    avatar: "/static/avatar/a2.jpg"
+    avatar: "/static/avatar/a2.jpg",
   },
   {
     uuid: "28d9f265-74d7-4f85-83d4-6a21fca57dcf",

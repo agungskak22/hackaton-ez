@@ -99,14 +99,14 @@
               <v-layout wrap>
                 <v-flex xs12 sm6>
                   <v-text-field
-                    prepend-inner-icon="supervisor_account"
+                    prepend-inner-icon="perm_contact_calendar"
                     required
                     label="NIK"
                   ></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-text-field
-                    prepend-inner-icon="place"
+                    prepend-inner-icon="keyboard_arrow_down"
                     required
                     label="Tempat Lahir"
                   ></v-text-field>
@@ -149,6 +149,50 @@
                     label="Alamat"
                   ></v-text-field>
                 </v-flex>
+                <v-flex xs4>
+                  <v-text-field
+                    prepend-inner-icon="group"
+                    required
+                    label="RT/RW"
+                  ></v-text-field>
+                </v-flex>
+                <v-flex xs4>
+                  <v-text-field
+                    prepend-inner-icon="contacts"
+                    required
+                    label="Kel/Desa"
+                  ></v-text-field>
+                </v-flex>
+                <v-flex xs4>
+                  <v-text-field
+                    prepend-inner-icon="contact_mail"
+                    required
+                    label="Kecamatan"
+                  ></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-text-field
+                    prepend-inner-icon="contact_mail"
+                    required
+                    label="Agama"
+                  ></v-text-field>
+                </v-flex>
+                <v-flex xs12 sm6>
+                <v-autocomplete
+                  prepend-inner-icon="nature_people"
+                  :items="['Belum Kawin','Sudah Kawin']"
+                  label="Status Kawin"
+                  multiple
+                ></v-autocomplete>
+              </v-flex>
+                <v-flex xs12>
+                <v-autocomplete
+                  prepend-inner-icon="landscape"
+                  :items="['Wni','Wna']"
+                  label="Kependudukan"
+                  multiple
+                ></v-autocomplete>
+              </v-flex>
                 <v-flex xs12>
                   <form id="file-upload-form" class="uploader">
                     <input
@@ -204,6 +248,7 @@ import moment from "moment";
 export default {
   data() {
     return {
+      opsiKawin: "Belum Kawin",
       dialog: false,
       date: new Date().toISOString().substr(0, 10),
       menu1: false,

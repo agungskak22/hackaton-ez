@@ -21,7 +21,7 @@
                     name="login"
                     label="Login"
                     type="text"
-                    v-model="model.username"
+                    v-model="username"
                   ></v-text-field>
                   <v-text-field
                     append-icon="lock"
@@ -29,20 +29,11 @@
                     label="Password"
                     id="password"
                     type="password"
-                    v-model="model.password"
+                    v-model="password"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn icon>
-                  <v-icon color="blue">fa fa-facebook-square fa-lg</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon color="red">fa fa-google fa-lg</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
-                </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn block color="primary" @click="login" :loading="loading"
                   >Login</v-btn
@@ -57,25 +48,59 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    loading: false,
-    model: {
-      username: "Superadministrator@yescare.com",
-      password: "password"
-    }
-  }),
+    import store from '@/store'
+    export default {
+        data() {
+            return {
+                error : false,
+                showpassword:false,
+                message: '',
+                username: '',
+                password: '',
+                loginError: false,
+                load: false,
+                valid: true,
+            }
+        },
+        methods: {
+            loadUpdate(){
+                this.load = true;
+            },
+            reset () {
+                this.$refs.form.reset()
+            },
+            submitLogin() {
+                this.loginError = false;
+                this.$http.post(this.$apiUrl + '/api/auth/login', {
+                    username: this.username,
+                    password: this.password
+                }).then(response => {
+                    if(response.data.status == 0){
+                        alert('Sorry your account is disable');
+                       this.load = false;
+                        return;
+                    }
+                    store.commit('loginUser')
+                    if(this.checkbox == true){
+                        localStorage.setItem('username', this.username)
+                    }else{
+                        localStorage.setItem('username', '')
+                    }
+                    localStorage.setItem('checkbox', this.checkbox)
+                    localStorage.setItem('token', response.data.access_token)
+                    localStorage.setItem('roles', response.data.role)
+                    this.$router.push({ name: 'dashboard' })
+                }).catch(error => {
+                    this.load = false
+                    this.error = true
+                    this.message = `The username and password you entered don't match`
+                });
 
-  methods: {
-    login() {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/dashboard");
-      }, 1000);
+            }
+        }
     }
-  }
-};
 </script>
+
 <style scoped lang="css">
 #login {
   height: 50%;
