@@ -159,6 +159,7 @@ export default {
   },
   methods: {
     codeScanned (event) {
+    console.log(event)
     }
   } 
 }

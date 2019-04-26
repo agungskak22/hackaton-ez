@@ -6,7 +6,7 @@ export default [
     },
     name: "Login",
     component: () =>
-      import(/* webpackChunkName: "routes" */
+      import(
       `@/views/Login.vue`)
   },
   {
@@ -22,7 +22,7 @@ export default [
     meta: { breadcrumb: true },
     name: "Dashboard",
     component: () =>
-      import(/* webpackChunkName: "routes" */
+      import(
       `@/views/Dashboard.vue`)
   },
   {
@@ -30,7 +30,7 @@ export default [
     meta: { breadcrumb: true },
     name: "userdata",
     component: () =>
-      import(/* webpackChunkName: "routes" */
+      import(
       `@/views/ui/Tables.vue`)
   },
   {
@@ -38,7 +38,7 @@ export default [
     meta: { breadcrumb: true },
     name: "patientqueue",
     component: () =>
-      import(/* webpackChunkName: "routes" */
+      import(
       `@/views/patientQueue.vue`)
   },
   {
@@ -46,7 +46,7 @@ export default [
     meta: { breadcrumb: true },
     name: "dogter",
     component: () =>
-      import(/* webpackChunkName: "routes" */
+      import(
       `@/views/Dogter.vue`)
   }
 ];
