@@ -30,6 +30,7 @@
                     id="password"
                     type="password"
                     v-model="data.password"
+                    @keyup.enter="submitLogin(); load =true"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -73,7 +74,7 @@ export default {
     },
     submitLogin () {
       this.loginError = false
-      this.$http.post(this.$apiUrl + '/auth/login', this.data).then(response => {
+      this.$http.post(this.$apiUrl + 'auth/login', this.data).then(response => {
         // if (response.data.status === 0) {
         //   alert('Sorry your account is disable')
         //   this.load = false
@@ -82,7 +83,8 @@ export default {
         store.commit('loginUser')
         localStorage.setItem('token', response.data.access_token)
         localStorage.setItem('roles', response.data.role)
-        this.$router.push({ name: 'dashboard' })
+        localStorage.setItem('id', response.data.id)
+        this.$router.push({ name: 'Dashboard' })
       }).catch(error => {
         console.log(error)
         this.load = false,

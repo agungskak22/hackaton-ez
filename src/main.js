@@ -9,7 +9,8 @@ import "font-awesome/css/font-awesome.css";
 import axios from 'axios'
 
 Vue.prototype.$http = axios
-Vue.prototype.$apiUrl = 'http://10.50.0.96';
+// Vue.prototype.$apiUrl = 'http://10.50.0.96/';
+Vue.prototype.$apiUrl = 'http://127.0.0.1:8000/'
 
 Vue.config.productionTip = false;
 new Vue({

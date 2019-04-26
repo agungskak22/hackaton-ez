@@ -1,60 +1,48 @@
+function loadViewLayout (view) {
+  return () => import(/* webpackChunkName: "viewLayout-[request]" */ `@/views/${view}.vue`)
+}
 export default [
-  {
-    path: "/dashboard",
-    meta: {},
-    name: "Root",
-    redirect: {
-      name: "Dashboard"
-    }
-  },
   {
     path: "/",
     meta: {
       public: true
     },
     name: "Login",
-    component: () =>
-      import(
-      `@/views/Login.vue`)
+    component: loadViewLayout(`Login`)
+  },
+  {
+    path: "/logout",
+    name: "Logout",
+    component: loadViewLayout(`Logout`)
   },
   {
     path: "/dashboard",
-    meta: { breadcrumb: true },
+    meta: { breadcrumb: true, requiresAuth: true },
     name: "Dashboard",
-    component: () =>
-      import(
-      `@/views/Dashboard.vue`)
+    component: loadViewLayout(`Dashboard`)
   },
   {
     path: "userdata",
-    meta: { breadcrumb: true },
+    meta: { breadcrumb: true, requiresAuth: true },
     name: "userdata",
-    component: () =>
-      import(
-      `@/views/ui/Tables.vue`)
+    component: loadViewLayout(`Tables`)
   },
   {
     path: "/patientqueue",
-    meta: { breadcrumb: true },
+    meta: { breadcrumb: true, requiresAuth: true },
     name: "patientqueue",
-    component: () =>
-      import(
-      `@/views/patientQueue.vue`)
+    component: loadViewLayout(`patientQueue`)
   },
   {
     path: "/halodogter",
-    meta: { breadcrumb: true },
+    meta: { breadcrumb: true, requiresAuth: true },
     name: "dogter",
-    component: () =>
-      import(
-      `@/views/Dogter.vue`)
+    component: loadViewLayout(`Dokter`)
   },
   {
     path: "/saranDokter",
-    meta: { breadcrumb: true },
+    meta: { breadcrumb: true, requiresAuth: true },
     name: "saranDokter",
-    component: () =>
-      import(
-      `@/views/saranDokter.vue`)
+    component: loadViewLayout(`saranDokter`)
   }
 ];
