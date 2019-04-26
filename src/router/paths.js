@@ -25,7 +25,7 @@ export default [
     path: "userdata",
     meta: { breadcrumb: true, requiresAuth: true },
     name: "userdata",
-    component: loadViewLayout(`Tables`)
+    component: loadViewLayout(`ui/Tables`)
   },
   {
     path: "/patientqueue",
