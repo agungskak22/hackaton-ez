@@ -23,6 +23,12 @@ const Menu = [
     group: "apps",
     icon: "record_voice_over",
     name: "dogter"
+  },
+  {
+    title: "Saran Dokter",
+    group: "apps",
+    icon: "record_voice_over",
+    name: "saranDokter"
   }
 ];
 // reorder menu

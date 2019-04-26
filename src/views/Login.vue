@@ -74,11 +74,11 @@ export default {
     submitLogin () {
       this.loginError = false
       this.$http.post(this.$apiUrl + '/auth/login', this.data).then(response => {
-        if (response.data.status === 0) {
-          alert('Sorry your account is disable')
-          this.load = false
-          return
-        }
+        // if (response.data.status === 0) {
+        //   alert('Sorry your account is disable')
+        //   this.load = false
+        //   return
+        // }
         store.commit('loginUser')
         localStorage.setItem('token', response.data.access_token)
         localStorage.setItem('roles', response.data.role)

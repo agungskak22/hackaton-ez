@@ -48,5 +48,13 @@ export default [
     component: () =>
       import(
       `@/views/Dogter.vue`)
+  },
+  {
+    path: "/saranDokter",
+    meta: { breadcrumb: true },
+    name: "saranDokter",
+    component: () =>
+      import(
+      `@/views/saranDokter.vue`)
   }
 ];
