@@ -14,7 +14,7 @@
     >
       <v-btn icon large flat slot="activator">
         <v-avatar size="30px">
-          <img src="/static/avatar/man_54.jpg" alt="Yescare" />
+          <img src="/static/avatar/man_54.jpg" alt="pascasarjana" />
         </v-avatar>
       </v-btn>
       <v-list class="pa-0">

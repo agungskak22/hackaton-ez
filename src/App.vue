@@ -13,7 +13,7 @@
           <!-- App Footer -->
           <v-footer height="auto" class="white pa-3 app--footer">
             <span class="caption"
-              >Yescare.com &copy; {{ new Date().getFullYear() }}</span
+              >pascasarjana.com &copy; {{ new Date().getFullYear() }}</span
             >
             <v-spacer></v-spacer>
             <span class="caption mr-1"> Make With Love </span>

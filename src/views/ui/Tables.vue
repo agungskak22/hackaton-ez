@@ -44,16 +44,14 @@
                       v-model="props.selected"
                     ></v-checkbox>
                   </td>
-                  <td>
-                    <v-avatar size="32">
-                      <img :src="props.item.avatar" alt="" />
-                    </v-avatar>
-                  </td>
                   <td>{{ props.item.name }}</td>
                   <td>{{ props.item.nik }}</td>
-                  <td>{{ props.item.AlamatLahir }}</td>
-                  <td>{{ props.item.Alamat }}</td>
-                  <td>{{ props.item.dateOfBirth }}</td>
+                  <td>{{ props.item.konsentrasi1 }}</td>
+                  <td>{{ props.item.pembimbing1 }}</td>
+                  <td>{{ props.item.konsentrasi2 }}</td>
+                  <td>
+                    <v-chip color="primary" text-color="white">{{ props.item.status }}</v-chip>
+                    </td>
                   <td class="text-xs-left">
                     <v-menu bottom left>
                       <template v-slot:activator="{ on }">
@@ -64,18 +62,10 @@
                       <v-list class="pa-0">
                         <v-list-tile rel="noopener" ripple="ripple">
                           <v-list-tile-action>
-                            <v-icon>edit</v-icon>
+                            <v-icon>done</v-icon>
                           </v-list-tile-action>
                           <v-list-tile-content>
-                            <v-list-tile-title>Edit</v-list-tile-title>
-                          </v-list-tile-content>
-                        </v-list-tile>
-                        <v-list-tile rel="noopener" ripple="ripple">
-                          <v-list-tile-action>
-                            <v-icon>delete</v-icon>
-                          </v-list-tile-action>
-                          <v-list-tile-content>
-                            <v-list-tile-title>Hapus Data</v-list-tile-title>
+                            <v-list-tile-title>Verifikasi</v-list-tile-title>
                           </v-list-tile-content>
                         </v-list-tile>
                       </v-list>
@@ -93,148 +83,66 @@
         <v-form>
           <v-card-text>
             <v-card-title>
-              <h4>Tambah Data User</h4>
+              <h4>Form Usulan Pembimbing tesis</h4>
             </v-card-title>
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6>
-                  <v-text-field
-                    prepend-inner-icon="perm_contact_calendar"
-                    required
-                    label="NIK"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-text-field
-                    prepend-inner-icon="keyboard_arrow_down"
-                    required
-                    label="Tempat Lahir"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-text-field
-                    prepend-inner-icon="text_rotation_none"
-                    required
-                    label="Nama"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-menu
-                    v-model="menu1"
-                    :close-on-content-click="false"
-                    full-width
-                    max-width="290"
-                  >
-                    <template v-slot:activator="{ on }">
-                      <v-text-field
-                        prepend-inner-icon="date_range"
-                        :value="computedDateFormattedMomentjs"
-                        clearable
-                        label="Tanggal Lahir"
-                        readonly
-                        v-on="on"
-                      ></v-text-field>
-                    </template>
-                    <v-date-picker
-                      v-model="date"
-                      @change="menu1 = false"
-                    ></v-date-picker>
-                  </v-menu>
-                </v-flex>
-
+                <v-autocomplete
+                  prepend-inner-icon="nature_people"
+                  :items="['Agung','Hendi','daud']"
+                  label="Nama Mahasiswa"
+                  multiple
+                ></v-autocomplete>
+              </v-flex>
+              <v-flex xs12 sm6>
+                <v-autocomplete
+                  prepend-inner-icon="nature_people"
+                  :items="['160709001','160709002','160709002','160709004','160709005','160709006']"
+                  label="NPM"
+                  multiple
+                ></v-autocomplete>
+              </v-flex>
                 <v-flex xs12>
-                  <v-text-field
-                    prepend-inner-icon="room"
-                    required
-                    label="Alamat"
+                <v-text-field
+                    label="Konsentrasi"
+                    prepend-inner-icon="place"
                   ></v-text-field>
-                </v-flex>
-                <v-flex xs4>
-                  <v-text-field
-                    prepend-inner-icon="group"
-                    required
-                    label="RT/RW"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs4>
-                  <v-text-field
-                    prepend-inner-icon="contacts"
-                    required
-                    label="Kel/Desa"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs4>
-                  <v-text-field
-                    prepend-inner-icon="contact_mail"
-                    required
-                    label="Kecamatan"
-                  ></v-text-field>
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-text-field
-                    prepend-inner-icon="contact_mail"
-                    required
-                    label="Agama"
-                  ></v-text-field>
+              </v-flex>
+                <v-flex xs12>
+                   <v-textarea
+                    outline
+                    name="input-7-4"
+                    label="Judul"
+                    placeholder="Judul Tesis"
+                  ></v-textarea>
                 </v-flex>
                 <v-flex xs12 sm6>
                 <v-autocomplete
                   prepend-inner-icon="nature_people"
-                  :items="['Belum Kawin','Sudah Kawin']"
-                  label="Status Kawin"
+                  :items="['Agung','Hendi','daud']"
+                  label="Dosen Pembimbing 1"
                   multiple
                 ></v-autocomplete>
               </v-flex>
-                <v-flex xs12>
+              <v-flex xs12 sm6>
                 <v-autocomplete
-                  prepend-inner-icon="landscape"
-                  :items="['Wni','Wna']"
-                  label="Kependudukan"
+                  prepend-inner-icon="nature_people"
+                  :items="['Agung','Hendi','daud']"
+                  label="Dosen Pembimbing 2"
                   multiple
                 ></v-autocomplete>
               </v-flex>
-                <v-flex xs12>
-                  <form id="file-upload-form" class="uploader">
-                    <input
-                      id="file-upload"
-                      type="file"
-                      name="fileUpload"
-                      accept="image/*"
-                    />
-                    <label for="file-upload" id="file-drag">
-                      <img
-                        id="file-image"
-                        src="#"
-                        alt="Preview"
-                        class="hidden"
-                      />
-                      <div id="start">
-                        <i class="fa fa-download" aria-hidden="true"></i>
-                        <div>Pilih Gambar Atau Drag</div>
-                        <div id="notimage" class="hidden">
-                          Please select an image
-                        </div>
-                        <span id="file-upload-btn" class="btn btn-primary"
-                          >Select a file</span
-                        >
-                      </div>
-                      <div id="response" class="hidden">
-                        <div id="messages"></div>
-                        <progress class="progress" id="file-progress" value="0">
-                          <span>0</span>%
-                        </progress>
-                      </div>
-                    </label>
-                  </form>
-                </v-flex>
               </v-layout>
             </v-container>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="indigo darken-1" @click="dialog = false" flat
-              >Simpan</v-btn
-            >
+            <v-btn color="red" @click="dialog = false" dark
+              >Cancel</v-btn>
+              <v-btn color="indigo darken-1" @click="dialog = false" dark
+              >Simpan</v-btn>
+              
           </v-card-actions>
         </v-form>
       </v-card>
@@ -258,28 +166,28 @@ export default {
         selected: [],
         headers: [
           {
-            text: "Foto",
-            value: "avatar"
-          },
-          {
             text: "Nama Pasien",
             value: "name"
           },
           {
-            text: "NIK",
+            text: "NPM",
             value: "nik"
           },
           {
-            text: "Tempat Lahir",
-            value: "Alamat"
+            text: "Konsentrasi",
+            value: "pembimbing1"
           },
           {
-            text: "Alamat",
-            value: "AlamatLahir"
+            text: "Pembimbing 1",
+            value: "konsentrasi1"
           },
           {
-            text: "Tanggal Lahir",
-            value: "dateOfBirth"
+            text: "Pembimbing 2",
+            value: "konsentrasi2"
+          },
+          {
+            text: "Status",
+            value: "konsentrasi2"
           },
           {
             text: "Delete/Hapus",
@@ -300,153 +208,3 @@ export default {
   }
 };
 </script>
-
-<style>
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Roboto");
-h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 26px;
-  line-height: 1;
-  color: #454cad;
-  margin-bottom: 0;
-}
-
-p {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  color: #5f6982;
-}
-
-.uploader {
-  display: block;
-  clear: both;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 600px;
-}
-.uploader label {
-  float: left;
-  clear: both;
-  width: 100%;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  background: #fff;
-  border-radius: 7px;
-  border: 3px solid #eee;
-  transition: all 0.2s ease;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.uploader label:hover {
-  border-color: #454cad;
-}
-.uploader label.hover {
-  border: 3px solid #454cad;
-  box-shadow: inset 0 0 0 6px #eee;
-}
-.uploader label.hover #start i.fa {
-  -webkit-transform: scale(0.8);
-  transform: scale(0.8);
-  opacity: 0.3;
-}
-.uploader #start {
-  float: left;
-  clear: both;
-  width: 100%;
-}
-.uploader #start.hidden {
-  display: none;
-}
-.uploader #start i.fa {
-  font-size: 50px;
-  margin-bottom: 1rem;
-  transition: all 0.2s ease-in-out;
-}
-.uploader #response {
-  float: left;
-  clear: both;
-  width: 100%;
-}
-.uploader #response.hidden {
-  display: none;
-}
-.uploader #response #messages {
-  margin-bottom: 0.5rem;
-}
-.uploader #file-image {
-  display: inline;
-  margin: 0 auto 0.5rem auto;
-  width: auto;
-  height: auto;
-  max-width: 180px;
-}
-.uploader #file-image.hidden {
-  display: none;
-}
-.uploader #notimage {
-  display: block;
-  float: left;
-  clear: both;
-  width: 100%;
-}
-.uploader #notimage.hidden {
-  display: none;
-}
-.uploader progress,
-.uploader .progress {
-  display: inline;
-  clear: both;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 180px;
-  height: 8px;
-  border: 0;
-  border-radius: 4px;
-  background-color: #eee;
-  overflow: hidden;
-}
-.uploader .progress[value]::-webkit-progress-bar {
-  border-radius: 4px;
-  background-color: #eee;
-}
-.uploader .progress[value]::-webkit-progress-value {
-  background: linear-gradient(to right, #393f90 0%, #454cad 50%);
-  border-radius: 4px;
-}
-.uploader .progress[value]::-moz-progress-bar {
-  background: linear-gradient(to right, #393f90 0%, #454cad 50%);
-  border-radius: 4px;
-}
-.uploader input[type="file"] {
-  display: none;
-}
-.uploader div {
-  margin: 0 0 0.5rem 0;
-  color: #5f6982;
-}
-.uploader .btn {
-  display: inline-block;
-  margin: 0.5rem 0.5rem 1rem 0.5rem;
-  clear: both;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  text-transform: initial;
-  border: none;
-  border-radius: 0.2rem;
-  outline: none;
-  padding: 0 1rem;
-  height: 36px;
-  line-height: 36px;
-  color: #fff;
-  transition: all 0.2s ease-in-out;
-  box-sizing: border-box;
-  background: #454cad;
-  border-color: #454cad;
-  cursor: pointer;
-}
-</style>

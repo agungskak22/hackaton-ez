@@ -7,7 +7,7 @@
           <mini-statistic
             icon="fa fa-wheelchair"
             title="1000"
-            sub-title="Pengunjung"
+            sub-title="Seluruh Mahasiswa"
             color="indigo"
           >
           </mini-statistic>
@@ -16,7 +16,7 @@
           <mini-statistic
             icon="trending_down"
             title="150"
-            sub-title="Belum Scan"
+            sub-title="Belum Yudisium"
             color="red darken-4"
           >
           </mini-statistic>
@@ -25,13 +25,13 @@
           <mini-statistic
             icon="trending_up"
             title="200"
-            sub-title="Sudah Scan"
+            sub-title="Sudah Yudisium"
             color="blue darken-3"
           >
           </mini-statistic>
         </v-flex>
         <!-- mini statistic  end -->
-        <v-flex lg8 sm12 xs12>
+        <!-- <v-flex lg8 sm12 xs12>
           <v-widget title="Pengunjung Perbulan" content-bg="white">
             <v-btn icon slot="widget-header-action">
               <v-icon class="text--secondary">refresh</v-icon>
@@ -60,8 +60,8 @@
               </e-chart>
             </div>
           </v-widget>
-        </v-flex>
-        <v-flex lg4 sm12 xs12>
+        </v-flex> -->
+        <!-- <v-flex lg4 sm12 xs12>
           <v-widget title="Penyakit Populer" content-bg="white">
             <div slot="widget-content">
               <e-chart
@@ -91,7 +91,7 @@
               </e-chart>
             </div>
           </v-widget>
-        </v-flex>
+        </v-flex> -->
       </v-layout>
     </v-container>
   </div>

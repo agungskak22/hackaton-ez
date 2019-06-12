@@ -28,13 +28,13 @@ export default [
     component: loadViewLayout(`ui/Tables`)
   },
   {
-    path: "/patientqueue",
+    path: "/sempro",
     meta: { breadcrumb: true, requiresAuth: true },
-    name: "patientqueue",
+    name: "sempro",
     component: loadViewLayout(`patientQueue`)
   },
   {
-    path: "/halodogter",
+    path: "/ujianTesis",
     meta: { breadcrumb: true, requiresAuth: true },
     name: "dogter",
     component: loadViewLayout(`Dokter`)

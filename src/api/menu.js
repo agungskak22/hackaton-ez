@@ -7,28 +7,22 @@ const Menu = [
     name: "Dashboard"
   },
   {
-    title: "Data User",
+    title: "Tesis",
     group: "apps",
     icon: "bar_chart",
     name: "userdata"
   },
   {
-    title: "Antrian Pasien",
+    title: "Seminar Proposal",
     group: "apps",
     icon: "queue",
-    name: "patientqueue"
+    name: "sempro"
   },
   {
-    title: "Dokter",
+    title: "Ujian Tesis",
     group: "apps",
     icon: "record_voice_over",
     name: "dogter"
-  },
-  {
-    title: "Saran Dokter",
-    group: "apps",
-    icon: "record_voice_over",
-    name: "saranDokter"
   }
 ];
 // reorder menu

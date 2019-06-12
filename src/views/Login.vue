@@ -9,11 +9,11 @@
                 <div class="layout column align-center">
                   <img
                     src="/static/m.png"
-                    alt="yescare"
+                    alt="pascasarjana"
                     width="120"
                     height="120"
                   />
-                  <h1 class="flex my-4 primary--text">Yescare Login</h1>
+                  <h1 class="flex my-4 primary--text">pascasarjana Login</h1>
                 </div>
                 <v-form>
                   <v-text-field
@@ -21,7 +21,6 @@
                     name="login"
                     label="Login"
                     type="text"
-                    v-model="data.username"
                   ></v-text-field>
                   <v-text-field
                     append-icon="lock"
@@ -29,8 +28,6 @@
                     label="Password"
                     id="password"
                     type="password"
-                    v-model="data.password"
-                    @keyup.enter="submitLogin(); load =true"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -49,7 +46,6 @@
 </template>
 
 <script>
-    import store from '@/store'
 export default {
   data() {
       return {
@@ -73,24 +69,7 @@ export default {
         this.$refs.form.reset()
     },
     submitLogin () {
-      this.loginError = false
-      this.$http.post(this.$apiUrl + 'auth/login', this.data).then(response => {
-        // if (response.data.status === 0) {
-        //   alert('Sorry your account is disable')
-        //   this.load = false
-        //   return
-        // }
-        store.commit('loginUser')
-        localStorage.setItem('token', response.data.access_token)
-        localStorage.setItem('roles', response.data.role)
-        localStorage.setItem('id', response.data.id)
         this.$router.push({ name: 'Dashboard' })
-      }).catch(error => {
-        console.log(error)
-        this.load = false,
-        this.error = true,
-        this.message = `The username and password you entered don't match`
-      })
     }
   }
 };
